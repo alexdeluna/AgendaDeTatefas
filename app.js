@@ -54,7 +54,13 @@ function sugerirDataAtual() {
   if (!input || input.value) return;
 
   const agora = new Date();
+
+  // adiciona 1 hora
+  agora.setHours(agora.getHours() + 1);
+
+  // ajuste de timezone para datetime-local
   agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
+
   input.value = agora.toISOString().slice(0, 16);
 }
 
@@ -93,7 +99,21 @@ function adicionarTarefa() {
 
 function limparFormulario() {
   document.getElementById("nomeTarefa").value = "";
-  sugerirDataAtual();
+
+  const input = document.getElementById("prazoTarefa");
+
+  if (input) {
+    const agora = new Date();
+
+    // define prazo como agora + 1 hora
+    agora.setHours(agora.getHours() + 1);
+
+    // ajuste necessário para datetime-local
+    agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
+
+    input.value = agora.toISOString().slice(0, 16);
+  }
+
   selecionarUrgencia("leve");
 }
 
