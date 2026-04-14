@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda de Tarefas</title>
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="description" content="Agendador de tarefas diárias em formato PWA" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./visual.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar card">
+      <div>
+        <h1>Agenda de Tarefas</h1>
+        <p class="subtitulo">Organize o dia com prioridade e prazo</p>
+      </div>
+
+      <button id="btnTema" class="btn btn-secundario btn-topo" type="button">
+        🌙 Tema
+      </button>
+    </header>
+
+    <main class="conteudo">
+      <section id="screen-home" class="screen active">
+        <div class="alerta-hoje card destaque">
+          <h2>Resumo do dia</h2>
+          <p id="alertaHoje">Você tem 0 tarefas para vencer hoje.</p>
+        </div>
+
+        <div class="menu-grid">
+          <button class="menu-card card" data-screen="screen-inserir">
+            <span class="emoji">➕</span>
+            <span>Inserir tarefa</span>
+          </button>
+
+          <button class="menu-card card" data-screen="screen-consultar">
+            <span class="emoji">📋</span>
+            <span>Consultar tarefas</span>
+          </button>
+
+          <button class="menu-card card" data-screen="screen-concluidas">
+            <span class="emoji">✅</span>
+            <span>Concluídas</span>
+          </button>
+
+          <button class="menu-card card" data-screen="screen-historico">
+            <span class="emoji">🗂️</span>
+            <span>Histórico</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="screen-inserir" class="screen">
+        <div class="screen-header">
+          <button class="btn btn-voltar" data-screen="screen-home" type="button">← Início</button>
+          <h2>Inserir tarefa</h2>
+        </div>
+
+        <div class="card form-card">
+          <div class="campo">
+            <label for="nomeTarefa">Nome da tarefa</label>
+            <input id="nomeTarefa" type="text" maxlength="120" placeholder="Ex.: Pagar conta de energia" />
+          </div>
+
+          <div class="campo">
+            <label for="prazoTarefa">Prazo de conclusão</label>
+            <input id="prazoTarefa" type="datetime-local" />
+          </div>
+
+          <div class="campo">
+            <label>Grau de urgência</label>
+            <div class="urgencia-grid">
+              <button id="urgLeve" class="btn-urgencia urg leve ativo" data-urgencia="leve" type="button">Leve</button>
+              <button id="urgMedia" class="btn-urgencia urg media" data-urgencia="medio" type="button">Médio</button>
+              <button id="urgAlta" class="btn-urgencia urg alta" data-urgencia="alto" type="button">Alto</button>
+            </div>
+          </div>
+
+          <button id="btnAdicionar" class="btn btn-primario btn-full" type="button">
+            Salvar tarefa
+          </button>
+        </div>
+      </section>
+
+      <section id="screen-consultar" class="screen">
+        <div class="screen-header">
+          <button class="btn btn-voltar" data-screen="screen-home" type="button">← Início</button>
+          <h2>Consultar tarefas</h2>
+        </div>
+
+        <div id="listaConsultar" class="cards-grid"></div>
+      </section>
+
+      <section id="screen-concluidas" class="screen">
+        <div class="screen-header">
+          <button class="btn btn-voltar" data-screen="screen-home" type="button">← Início</button>
+          <h2>Concluídas</h2>
+        </div>
+
+        <div id="listaConcluidas" class="cards-grid"></div>
+      </section>
+
+      <section id="screen-historico" class="screen">
+        <div class="screen-header">
+          <button class="btn btn-voltar" data-screen="screen-home" type="button">← Início</button>
+          <h2>Histórico</h2>
+        </div>
+
+        <div id="listaHistorico" class="cards-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
