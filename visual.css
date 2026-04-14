@@ -1,0 +1,431 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #162033;
+  --muted: #64748b;
+  --border: #dbe3ee;
+  --primary: #2563eb;
+  --primary-strong: #1d4ed8;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --warning: #ca8a04;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body.dark {
+  --bg: #0f172a;
+  --card: #172033;
+  --text: #eef4ff;
+  --muted: #aab7cc;
+  --border: #2a3851;
+  --primary: #60a5fa;
+  --primary-strong: #3b82f6;
+  --danger: #f87171;
+  --success: #4ade80;
+  --warning: #facc15;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+}
+
+body {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.subtitulo {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.destaque {
+  padding: 20px;
+}
+
+.alerta-hoje h2 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+}
+
+.alerta-hoje p {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.menu-card {
+  min-height: 135px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 24px;
+  padding: 18px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.menu-card:active {
+  transform: scale(0.98);
+}
+
+.menu-card .emoji {
+  font-size: 2rem;
+}
+
+.conteudo {
+  min-height: calc(100vh - 120px);
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.screen-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.form-card {
+  padding: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.campo label {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 16px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1.05rem;
+  outline: none;
+}
+
+.campo input:focus {
+  border-color: var(--primary);
+}
+
+.urgencia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.btn-urgencia {
+  border: 2px solid transparent;
+  border-radius: 18px;
+  min-height: 58px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.75;
+}
+
+.btn-urgencia.ativo {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.urg.leve {
+  background: #16a34a;
+}
+
+.urg.media {
+  background: #eab308;
+  color: #1f2937;
+}
+
+.urg.alta {
+  background: #dc2626;
+}
+
+.btn {
+  border: none;
+  border-radius: 16px;
+  min-height: 52px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-primario {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-secundario {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-voltar {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-topo {
+  min-width: 110px;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.task-card {
+  padding: 16px;
+}
+
+.task-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.task-titulo {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.tag {
+  min-width: 88px;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tag.leve {
+  background: #16a34a;
+}
+
+.tag.medio {
+  background: #ca8a04;
+}
+
+.tag.alto {
+  background: #dc2626;
+}
+
+.task-info {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.task-acoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.task-acoes-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.btn-sucesso {
+  background: var(--success);
+  color: white;
+}
+
+.btn-alerta {
+  background: var(--warning);
+  color: #1f2937;
+}
+
+.btn-perigo {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-neutro {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.vazio {
+  padding: 28px 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.status-prazo {
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.status-ok {
+  color: var(--success);
+}
+
+.status-atraso {
+  color: var(--danger);
+}
+
+.edit-box {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.edit-box input {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.edit-urgencias {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.mini-urg {
+  min-height: 48px;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
+  opacity: 0.75;
+  color: #fff;
+}
+
+.mini-urg.medio {
+  color: #1f2937;
+}
+
+.mini-urg.ativo {
+  opacity: 1;
+  outline: 2px solid var(--text);
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-card {
+    min-height: 120px;
+    font-size: 1.05rem;
+  }
+
+  .task-acoes,
+  .task-acoes-3,
+  .urgencia-grid,
+  .edit-urgencias {
+    grid-template-columns: 1fr;
+  }
+
+  .screen-header h2 {
+    font-size: 1.35rem;
+  }
+}
